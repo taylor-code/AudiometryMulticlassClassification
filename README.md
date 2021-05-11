@@ -1,2 +1,3 @@
-# AudiometryBinaryClassification
-Conducts a binary classification of audiometry data. Classifies data as 0 (Conductive) or 1 (Sensorineural).
+# AudiometryMultiClassClassification
+
+C# ML.NET program to predict hearing loss type (conductive, sensorinerual, and mixed).
