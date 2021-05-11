@@ -201,8 +201,8 @@ namespace AudiometryClassificationML.ConsoleApp
              * 
              * Micro Accuracy      :  Better if close to 1
              * Macro Accuracy      :  Better if close to 1
-             * Log-loss            :  Better if close to 0
-             * Log-loss Reduction  :  Better if close to 1
+             * Log-Loss            :  Better if close to 0
+             * Log-Loss Reduction  :  Better if close to 1
              */
 
             // Display the metrics for model validation.
