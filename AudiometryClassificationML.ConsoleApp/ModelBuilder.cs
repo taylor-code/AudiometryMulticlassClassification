@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using Microsoft.ML;
 using Microsoft.ML.Data;
-using AudiometryBinaryClassificationML.Model;
+using AudiometryClassificationML.Model;
 
-namespace AudiometryBinaryClassificationML.ConsoleApp
+namespace AudiometryClassificationML.ConsoleApp
 {
     public static class ModelBuilder
     {
@@ -216,6 +216,8 @@ namespace AudiometryBinaryClassificationML.ConsoleApp
             Console.WriteLine($"*****************************************************\n");
         }
 
+
+        /******************************** TO BE DELETED ********************************/
 
         /// <summary>
         /// Executes the following tasks:

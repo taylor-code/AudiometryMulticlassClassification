@@ -1,7 +1,7 @@
 using System;
 using Microsoft.ML.Data;
 
-namespace AudiometryBinaryClassificationML.Model
+namespace AudiometryClassificationML.Model
 {
     public class HearingSetOutput
     {

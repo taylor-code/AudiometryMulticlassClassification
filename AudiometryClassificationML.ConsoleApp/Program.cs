@@ -1,7 +1,7 @@
 using System;
-using AudiometryBinaryClassificationML.Model;
+using AudiometryClassificationML.Model;
 
-namespace AudiometryBinaryClassificationML.ConsoleApp
+namespace AudiometryClassificationML.ConsoleApp
 {
     class Program
     {

@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Microsoft.ML;
 
-namespace AudiometryBinaryClassificationML.Model
+namespace AudiometryClassificationML.Model
 {
     public class ConsumeModel
     {
