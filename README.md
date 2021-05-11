@@ -15,7 +15,7 @@ These four metrics are represented on a scale of 0.00 to 1.00. For a high-perfor
 
 ### Current Mutli-Class Metrics
 
-Here are the latest mutli-class metrics for the AudiometryMultiClassClassification program:
+Here are the latest mutli-class metrics for this program:
 ```
    Macro Accuracy     = 1
    Micro Accuracy     = 1
