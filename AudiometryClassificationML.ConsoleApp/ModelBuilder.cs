@@ -70,9 +70,6 @@ namespace AudiometryClassificationML.ConsoleApp
             // Save model.
             SaveModel(TrainingDataView.Schema);
             Console.WriteLine("Saved the model.");
-
-            Console.WriteLine("Predicting...");
-            Predict();
         }
 
 
@@ -97,34 +94,32 @@ namespace AudiometryClassificationML.ConsoleApp
                                           new InputOutputColumnPair("col10", "col10"),
                                           new InputOutputColumnPair("col11", "col11"),
                                           new InputOutputColumnPair("col12", "col12"),
-                                          new InputOutputColumnPair("col13", "col13") }
+                                          new InputOutputColumnPair("col13", "col13"),
+                                          new InputOutputColumnPair("col14", "col14"),
+                                          new InputOutputColumnPair("col15", "col15"),
+                                          new InputOutputColumnPair("col16", "col16"),
+                                          new InputOutputColumnPair("col17", "col17"),
+                                          new InputOutputColumnPair("col18", "col18"),
+                                          new InputOutputColumnPair("col19", "col19"),
+                                          new InputOutputColumnPair("col20", "col20"),
+                                          new InputOutputColumnPair("col21", "col21"),
+                                          new InputOutputColumnPair("col22", "col22"),
+                                          new InputOutputColumnPair("col23", "col23"),
+                                          new InputOutputColumnPair("col24", "col24"),
+                                          new InputOutputColumnPair("col25", "col25") }
                                       ))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col14_tf", "col14"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col15_tf", "col15"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col16_tf", "col16"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col17_tf", "col17"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col18_tf", "col18"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col19_tf", "col19"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col20_tf", "col20"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col21_tf", "col21"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col22_tf", "col22"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col23_tf", "col23"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col24_tf", "col24"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("col25_tf", "col25"))
                                       .Append(mlContext.Transforms.Concatenate("Features", new[] {
-                                          "col1", "col2", "col3", "col4", "col5", "col6", "col7", "col8",
-                                          "col9", "col10", "col11", "col12", "col13", "col14_tf", "col15_tf",
-                                          "col16_tf", "col17_tf", "col18_tf", "col19_tf", "col20_tf",
-                                          "col21_tf", "col22_tf", "col23_tf", "col24_tf", "col25_tf" }
+                                          "col1",  "col2",  "col3",  "col4",  "col5",  "col6", "col7",
+                                          "col8",  "col9",  "col10", "col11", "col12", "col13",
+                                          "col14", "col15", "col16", "col17", "col18", "col19",
+                                          "col20", "col21", "col22", "col23", "col24", "col25" }
                                       ));
 
-            // Set the training algorithm.
-            //var trainer = mlContext.MulticlassClassification.Trainers.LightGbm(labelColumnName: @"col0", featureColumnName: "Features")
-            //                          .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
 
-            // SdcaMaximumEntropy is the multi-class classification training algorithm.
+            // Set the trainer. SdcaMaximumEntropy is the
+            // multi-class classification training algorithm.
             var trainer = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"col0", "Features")
-                                      .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
+                             .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
 
             var trainingPipeline = dataProcessPipeline.Append(trainer);
 
@@ -135,7 +130,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// <summary>
         /// Fits the training data to the training pipeline.
         /// </summary>
-        /// <returns> model </returns>
+        /// <returns> The model </returns>
         public static ITransformer TrainModel()
         {
             return TrainingPipeline.Fit(TrainingDataView);
@@ -214,60 +209,6 @@ namespace AudiometryClassificationML.ConsoleApp
             Console.WriteLine($"*   Log-Loss           = {metrics.LogLoss:0.####}");
             Console.WriteLine($"*   Log-Loss Reduction = {metrics.LogLossReduction:0.####}");
             Console.WriteLine($"*****************************************************\n");
-        }
-
-
-        /******************************** TO BE DELETED ********************************/
-
-        /// <summary>
-        /// Executes the following tasks:
-        ///   Creates the training algorithm class.
-        ///   Trains the model.
-        ///   Predicts Area based on training data.
-        ///   Returns the model.
-        /// </summary>
-        /// <returns>trainingPipeline</returns>
-        public static void Predict()
-        {
-            // PredictionEngine is a convenience API. Performs a prediction on a single instance of data.
-            var PredictionEngine = mlContext.Model.CreatePredictionEngine<HearingSetInput, HearingSetOutput>(TrainedModel);
-
-
-            /* Predict with the trained model */
-            HearingSetInput sampleData = new HearingSetInput()
-            {
-                Degree = @"Mild",
-                AC_L_250 = @"30",
-                AC_L_500 = @"25",
-                AC_L_1000 = @"40",
-                AC_L_2000 = @"25",
-                AC_L_4000 = @"30",
-                AC_L_8000 = @"30",
-                AC_R_250 = @"40",
-                AC_R_500 = @"30",
-                AC_R_1000 = @"35",
-                AC_R_2000 = @"30",
-                AC_R_4000 = @"35",
-                AC_R_8000 = @"25",
-                BC_L_250 = @"0",
-                BC_L_500 = @"5",
-                BC_L_1000 = @"-5",
-                BC_L_2000 = @"5",
-                BC_L_4000 = @"5",
-                BC_L_8000 = @"10",
-                BC_R_250 = @"5",
-                BC_R_500 = @"-5",
-                BC_R_1000 = @"10",
-                BC_R_2000 = @"0",
-                BC_R_4000 = @"5",
-                BC_R_8000 = @"10"
-            };
-
-            var prediction = PredictionEngine.Predict(sampleData);
-
-
-            /* Use the model: prediction results */
-            Console.WriteLine($"=============== Single Prediction just-trained-model - Result: {prediction.Prediction} ===============");
         }
 
     }
