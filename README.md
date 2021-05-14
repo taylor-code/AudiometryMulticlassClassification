@@ -1,6 +1,10 @@
 # AudiometryMultiClassClassification
 
-C# ML.NET program to predict hearing loss type (conductive, sensorinerual, and mixed).
+C# ML.NET program to predict one of the following possible hearing loss types:
+1. Conductive
+2. Sensorinerual
+3. Mixed
+4. None (No Hearing Loss)
 
 ---
 
