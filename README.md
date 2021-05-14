@@ -19,8 +19,8 @@ Here are the latest mutli-class metrics for this program:
 ```
    Macro Accuracy     = 1
    Micro Accuracy     = 1
-   Log-Loss           = 0.0021
-   Log-Loss Reduction = 0.9983
+   Log-Loss           = 0.0019
+   Log-Loss Reduction = 0.9985
 ```
 
 ---
