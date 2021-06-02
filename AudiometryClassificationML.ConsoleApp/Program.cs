@@ -32,6 +32,7 @@ namespace AudiometryClassificationML.ConsoleApp
         static void PrintDataSet(HearingSetInput hearingSet)
         {
             Console.WriteLine($"Degree:    { hearingSet.Degree }");
+            Console.WriteLine($"Config:    { hearingSet.Config }");
             Console.WriteLine($"AC_L_250:  { hearingSet.AC_L_250 }");
             Console.WriteLine($"AC_L_500:  { hearingSet.AC_L_500 }");
             Console.WriteLine($"AC_L_1000: { hearingSet.AC_L_1000 }");

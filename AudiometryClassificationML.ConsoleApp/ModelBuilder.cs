@@ -34,7 +34,7 @@ namespace AudiometryClassificationML.ConsoleApp
 
 
         /**********************************************/
-        /*                  METHODS                   */
+        /*          MACHING LEARNING METHODS          */
         /**********************************************/
 
         /// <summary>
@@ -46,13 +46,7 @@ namespace AudiometryClassificationML.ConsoleApp
             Console.WriteLine("Initialized MLContext.");
 
             // Load data.
-            TrainingDataView = mlContext.Data.LoadFromTextFile<HearingSetInput>(
-                                  path: TRAIN_DATA_FILEPATH,
-                                  hasHeader: true,
-                                  separatorChar: ',',
-                                  allowQuoting: true,
-                                  allowSparse: false
-                               );
+            TrainingDataView = LoadDataFile(TRAIN_DATA_FILEPATH);
             Console.WriteLine("Loaded the training data.");
 
             // Build training pipeline.
@@ -82,8 +76,8 @@ namespace AudiometryClassificationML.ConsoleApp
             // Extract features and transform the data.
             var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("col0", "col0")
                                       .Append(mlContext.Transforms.Categorical.OneHotEncoding(new[] {
-                                          new InputOutputColumnPair("col1", "col1"),
-                                          new InputOutputColumnPair("col2", "col2"),
+                                          //new InputOutputColumnPair("col1", "col1"),
+                                          //new InputOutputColumnPair("col2", "col2"),
                                           new InputOutputColumnPair("col3", "col3"),
                                           new InputOutputColumnPair("col4", "col4"),
                                           new InputOutputColumnPair("col5", "col5"),
@@ -106,13 +100,14 @@ namespace AudiometryClassificationML.ConsoleApp
                                           new InputOutputColumnPair("col22", "col22"),
                                           new InputOutputColumnPair("col23", "col23"),
                                           new InputOutputColumnPair("col24", "col24"),
-                                          new InputOutputColumnPair("col25", "col25") }
+                                          new InputOutputColumnPair("col25", "col25"),
+                                          new InputOutputColumnPair("col26", "col26") }
                                       ))
                                       .Append(mlContext.Transforms.Concatenate("Features", new[] {
-                                          "col1",  "col2",  "col3",  "col4",  "col5",  "col6", "col7",
-                                          "col8",  "col9",  "col10", "col11", "col12", "col13",
-                                          "col14", "col15", "col16", "col17", "col18", "col19",
-                                          "col20", "col21", "col22", "col23", "col24", "col25" }
+                                          "col3",  "col4",  "col5",  "col6",  "col7",  "col8",
+                                          "col9",  "col10", "col11", "col12", "col13", "col14",
+                                          "col15", "col16", "col17", "col18", "col19", "col20",
+                                          "col21", "col22", "col23", "col24", "col25", "col26" }
                                       ));
 
 
@@ -142,15 +137,8 @@ namespace AudiometryClassificationML.ConsoleApp
         /// </summary>
         private static void Evaluate()
         {
-            // Load data.
-            IDataView testDataView = mlContext.Data.LoadFromTextFile<HearingSetInput>(
-                                        path: TEST_DATA_FILEPATH,
-                                        hasHeader: true,
-                                        separatorChar: ',',
-                                        allowQuoting: true,
-                                        allowSparse: false
-                                     );
-
+            // Load the test data.
+            IDataView testDataView = LoadDataFile(TEST_DATA_FILEPATH);
 
             // Evaluate the model's quality metrics.
             var testMetrics = mlContext.MulticlassClassification.Evaluate(TrainedModel.Transform(testDataView), labelColumnName: @"col0");
@@ -158,10 +146,29 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
+
+        /**********************************************/
+        /*               HELPER METHODS               */
+        /**********************************************/
+
+        /// <summary>
+        /// Loads the data file into an IDataView object.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns>The IDataView object </returns>
+        private static IDataView LoadDataFile(string filepath)
+        {
+            return mlContext.Data.LoadFromTextFile<HearingSetInput>(
+                     path: filepath,
+                     hasHeader: true,
+                     separatorChar: ','
+                   );
+        }
+
+
         /// <summary>
         /// Saves the trained model to a .ZIP file.
         /// </summary>
-        /// <returns> model </returns>
         private static void SaveModel(DataViewSchema modelInputSchema)
         {
             mlContext.Model.Save(TrainedModel, modelInputSchema, GetAbsolutePath(MODEL_FILE));
@@ -172,15 +179,13 @@ namespace AudiometryClassificationML.ConsoleApp
         /// Uses Path to get the absolute path of a file.
         /// </summary>
         /// <param name="relativePath"></param>
-        /// <returns> fullPath </returns>
+        /// <returns> The full path </returns>
         public static string GetAbsolutePath(string relativePath)
         {
             FileInfo dataRoot = new FileInfo(typeof(Program).Assembly.Location);
             string assemblyFolderPath = dataRoot.Directory.FullName;
 
-            string fullPath = Path.Combine(assemblyFolderPath, relativePath);
-
-            return fullPath;
+            return Path.Combine(assemblyFolderPath, relativePath);
         }
 
 
