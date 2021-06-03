@@ -1,23 +1,48 @@
 using System;
+using System.Diagnostics;
+
 using AudiometryClassificationML.Model;
+
 
 namespace AudiometryClassificationML.ConsoleApp
 {
     class Program
     {
+        /// <summary>
+        /// After initializing the model, uses it
+        /// to predict values for hearing sets.
+        /// </summary>
         static void Main()
         {
-            ModelBuilder.CreateModel();
-
-            Console.WriteLine("\n\n============================================\n\n");
+            InitializeModel();
 
             PredictTypes(PredictionTestSets.conductiveSet);
             PredictTypes(PredictionTestSets.mixedSet);
             PredictTypes(PredictionTestSets.noneSet);
-            PredictTypes(PredictionTestSets.sensorinerualSet);
+            PredictTypes(PredictionTestSets.sensorineuralSet);
 
             Console.WriteLine("\n\nPress any key to quit.");
             Console.ReadKey();
+        }
+
+
+        /// <summary>
+        /// Runs the model creation process and
+        /// times how long the process takes.
+        /// </summary>
+        static void InitializeModel()
+        {
+            var stopWatch = new Stopwatch();
+
+            stopWatch.Start();
+            ModelBuilder.CreateModel();
+            stopWatch.Stop();
+
+            TimeSpan ts = stopWatch.Elapsed;
+
+            Console.WriteLine($"\n\nElapsed Time: {ts.Minutes}:{ts.Seconds} (Min:Sec)");
+
+            Console.WriteLine("\n============================================\n\n");
         }
 
 

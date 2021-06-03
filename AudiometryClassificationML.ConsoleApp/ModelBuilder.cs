@@ -76,8 +76,8 @@ namespace AudiometryClassificationML.ConsoleApp
             // Extract features and transform the data.
             var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("col0", "col0")
                                       .Append(mlContext.Transforms.Categorical.OneHotEncoding(new[] {
-                                          //new InputOutputColumnPair("col1", "col1"),
-                                          //new InputOutputColumnPair("col2", "col2"),
+                                          new InputOutputColumnPair("col1", "col1"),
+                                          new InputOutputColumnPair("col2", "col2"),
                                           new InputOutputColumnPair("col3", "col3"),
                                           new InputOutputColumnPair("col4", "col4"),
                                           new InputOutputColumnPair("col5", "col5"),
@@ -104,8 +104,8 @@ namespace AudiometryClassificationML.ConsoleApp
                                           new InputOutputColumnPair("col26", "col26") }
                                       ))
                                       .Append(mlContext.Transforms.Concatenate("Features", new[] {
-                                          "col3",  "col4",  "col5",  "col6",  "col7",  "col8",
-                                          "col9",  "col10", "col11", "col12", "col13", "col14",
+                                          "col1",  "col2",  "col3",  "col4",  "col5",  "col6",  "col7",
+                                          "col8",  "col9",  "col10", "col11", "col12", "col13", "col14",
                                           "col15", "col16", "col17", "col18", "col19", "col20",
                                           "col21", "col22", "col23", "col24", "col25", "col26" }
                                       ));

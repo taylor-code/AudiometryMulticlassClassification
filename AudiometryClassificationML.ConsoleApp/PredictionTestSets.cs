@@ -38,7 +38,7 @@ namespace AudiometryClassificationML.ConsoleApp
         public static readonly HearingSetInput mixedSet = new HearingSetInput()
         {
             Degree    = "AC: Profound & BC: Severe",
-            Config    = "Bilateral | Symmetrical",
+            Config    = "Bilateral",
             AC_L_250  = 95,
             AC_L_500  = 95,
             AC_L_1000 = 95,
@@ -97,7 +97,7 @@ namespace AudiometryClassificationML.ConsoleApp
         };
 
 
-        public static readonly HearingSetInput sensorinerualSet = new HearingSetInput()
+        public static readonly HearingSetInput sensorineuralSet = new HearingSetInput()
         {
             Degree    = "Moderate",
             Config    = "Bilateral | Symmetrical",

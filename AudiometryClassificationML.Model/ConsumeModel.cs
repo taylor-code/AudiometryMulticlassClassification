@@ -6,7 +6,7 @@ namespace AudiometryClassificationML.Model
 {
     public class ConsumeModel
     {
-        private static readonly Lazy<PredictionEngine<HearingSetInput, HearingSetOutput>> PredEngine = new Lazy<PredictionEngine<HearingSetInput, HearingSetOutput>>(CreatePredictionEngine);
+        private static readonly Lazy<PredictionEngine<HearingSetInput, HearingSetOutput>> PredEngine = new Lazy<PredictionEngine<HearingSetInput, HearingSetOutput>>(CreatePredEngine);
 
         public static string MODEL_PATH = Path.GetFullPath("MLModel.zip");
 
@@ -27,12 +27,12 @@ namespace AudiometryClassificationML.Model
         /// Creates a prediction engine to consume the model.
         /// </summary>
         /// <returns> predEngine </returns>
-        public static PredictionEngine<HearingSetInput, HearingSetOutput> CreatePredictionEngine()
+        public static PredictionEngine<HearingSetInput, HearingSetOutput> CreatePredEngine()
         {
             MLContext mlContext = new MLContext();
 
             // Load model and create prediction engine.
-            ITransformer mlModel = mlContext.Model.Load(MODEL_PATH, out var _);// modelInputSchema);
+            ITransformer mlModel = mlContext.Model.Load(MODEL_PATH, out var _);
             var predEngine = mlContext.Model.CreatePredictionEngine<HearingSetInput, HearingSetOutput>(mlModel);
 
             return predEngine;
