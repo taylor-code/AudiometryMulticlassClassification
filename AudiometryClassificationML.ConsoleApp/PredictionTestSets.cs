@@ -6,8 +6,9 @@ namespace AudiometryClassificationML.ConsoleApp
     {
         public static readonly HearingSetInput conductiveSet = new HearingSetInput()
         {
-            Degree    = "Mild",
-            Config    = "Bilateral | Symmetrical",
+            //Type      = "Conductive",
+            //Degree    = "Mild",
+            //Config    = "Bilateral | Symmetrical",
             AC_L_250  = 30,
             AC_L_500  = 25,
             AC_L_1000 = 40,
@@ -22,12 +23,12 @@ namespace AudiometryClassificationML.ConsoleApp
             AC_R_8000 = 25,
             BC_L_250  = 0,
             BC_L_500  = 5,
-            BC_L_1000 = -5,
+            BC_L_1000 = 5,
             BC_L_2000 = 5,
             BC_L_4000 = 5,
             BC_L_8000 = 10,
             BC_R_250  = 5,
-            BC_R_500  = -5,
+            BC_R_500  = 5,
             BC_R_1000 = 10,
             BC_R_2000 = 0,
             BC_R_4000 = 5,
@@ -37,8 +38,9 @@ namespace AudiometryClassificationML.ConsoleApp
 
         public static readonly HearingSetInput mixedSet = new HearingSetInput()
         {
-            Degree    = "AC: Profound & BC: Severe",
-            Config    = "Bilateral",
+            //Type      = "Mixed",
+            //Degree    = "AC: Profound & BC: Severe",
+            //Config    = "Bilateral | Symmetrical",
             AC_L_250  = 95,
             AC_L_500  = 95,
             AC_L_1000 = 95,
@@ -68,8 +70,9 @@ namespace AudiometryClassificationML.ConsoleApp
 
         public static readonly HearingSetInput noneSet = new HearingSetInput()
         {
-            Degree    = "Normal",
-            Config    = "None",
+            //Type      = "None",
+            //Degree    = "Normal",
+            //Config    = "None",
             AC_L_250  = 0,
             AC_L_500  = 5,
             AC_L_1000 = 5,
@@ -79,10 +82,10 @@ namespace AudiometryClassificationML.ConsoleApp
             AC_R_250  = 0,
             AC_R_500  = 0,
             AC_R_1000 = 0,
-            AC_R_2000 = -5,
+            AC_R_2000 = 5,
             AC_R_4000 = 5,
-            AC_R_8000 = -5,
-            BC_L_250  = -10,
+            AC_R_8000 = 5,
+            BC_L_250  = 10,
             BC_L_500  = 5,
             BC_L_1000 = 5,
             BC_L_2000 = 5,
@@ -99,8 +102,9 @@ namespace AudiometryClassificationML.ConsoleApp
 
         public static readonly HearingSetInput sensorineuralSet = new HearingSetInput()
         {
-            Degree    = "Moderate",
-            Config    = "Bilateral | Symmetrical",
+            //Type      = "Sensorineural",
+            //Degree    = "Moderate",
+            //Config    = "Bilateral | Symmetrical",
             AC_L_250  = 40,
             AC_L_500  = 45,
             AC_L_1000 = 55,
@@ -125,6 +129,38 @@ namespace AudiometryClassificationML.ConsoleApp
             BC_R_2000 = 45,
             BC_R_4000 = 45,
             BC_R_8000 = 50
+        };
+
+        //40,30,20,20,15,5, 30,30,25,15,15,10, 35,30,25,15,10,15, 40,30,25,15,10,10
+        public static readonly HearingSetInput lowFrequencySet = new HearingSetInput()
+        {
+            //Type      = "Left: Sensorineural & Right: Mixed",
+            //Degree    = "Left: Mild & Right: AC: Slight | BC: Mild",
+            //Config    = "Low-Frequency | Bilateral",
+            AC_L_250  = 40,
+            AC_L_500  = 30,
+            AC_L_1000 = 20,
+            AC_L_2000 = 20,
+            AC_L_4000 = 15,
+            AC_L_8000 = 5,
+            AC_R_250  = 30,
+            AC_R_500  = 30,
+            AC_R_1000 = 25,
+            AC_R_2000 = 15,
+            AC_R_4000 = 15,
+            AC_R_8000 = 10,
+            BC_L_250  = 35,
+            BC_L_500  = 30,
+            BC_L_1000 = 25,
+            BC_L_2000 = 15,
+            BC_L_4000 = 10,
+            BC_L_8000 = 15,
+            BC_R_250  = 40,
+            BC_R_500  = 30,
+            BC_R_1000 = 25,
+            BC_R_2000 = 15,
+            BC_R_4000 = 10,
+            BC_R_8000 = 10
         };
 
     }

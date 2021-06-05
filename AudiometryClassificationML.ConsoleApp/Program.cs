@@ -20,6 +20,7 @@ namespace AudiometryClassificationML.ConsoleApp
             PredictTypes(PredictionTestSets.mixedSet);
             PredictTypes(PredictionTestSets.noneSet);
             PredictTypes(PredictionTestSets.sensorineuralSet);
+            PredictTypes(PredictionTestSets.lowFrequencySet);
 
             Console.WriteLine("\n\nPress any key to quit.");
             Console.ReadKey();
@@ -48,7 +49,7 @@ namespace AudiometryClassificationML.ConsoleApp
 
         static void PredictTypes(HearingSetInput hearingSet)
         {
-            Console.WriteLine("\nUsing model to make a single prediction for the following data:\n");
+            Console.WriteLine("\nUsing model to make predictions for the following data:\n");
             PrintDataSet(hearingSet);
             PrintPredictionResults(ConsumeModel.Predict(hearingSet));
         }
@@ -56,8 +57,6 @@ namespace AudiometryClassificationML.ConsoleApp
 
         static void PrintDataSet(HearingSetInput hearingSet)
         {
-            Console.WriteLine($"Degree:    { hearingSet.Degree }");
-            Console.WriteLine($"Config:    { hearingSet.Config }");
             Console.WriteLine($"AC_L_250:  { hearingSet.AC_L_250 }");
             Console.WriteLine($"AC_L_500:  { hearingSet.AC_L_500 }");
             Console.WriteLine($"AC_L_1000: { hearingSet.AC_L_1000 }");
@@ -88,14 +87,16 @@ namespace AudiometryClassificationML.ConsoleApp
         static void PrintPredictionResults(HearingSetOutput prediction)
         {
             Console.WriteLine($"\n*******************************************");
-            Console.WriteLine($"*       Metrics for Single Prediction      ");
+            Console.WriteLine($"*             Prediction Metrics             ");
             Console.WriteLine($"*------------------------------------------");
-            Console.WriteLine($"*   Predicted Type: {prediction.Prediction}");
-            Console.WriteLine($"*   Predicted Type Scores:");
-            Console.WriteLine($"*       Conductive    = {prediction.Score[0]:0.######}");
-            Console.WriteLine($"*       Mixed         = {prediction.Score[1]:0.######}");
-            Console.WriteLine($"*       None          = {prediction.Score[2]:0.######}");
-            Console.WriteLine($"*       Sensorineural = {prediction.Score[3]:0.######}");
+            Console.WriteLine($"*   Predicted Type: {prediction.TypePrediction}");
+            Console.WriteLine($"*       Predicted Type Scores:");
+            Console.WriteLine($"*           Conductive    = {prediction.Score[0]:0.######}");
+            Console.WriteLine($"*           Mixed         = {prediction.Score[1]:0.######}");
+            Console.WriteLine($"*           None          = {prediction.Score[2]:0.######}");
+            Console.WriteLine($"*           Sensorineural = {prediction.Score[3]:0.######}");
+            Console.WriteLine($"*   Predicted Degree: {prediction.DegreePrediction}");
+            Console.WriteLine($"*   Predicted Config: {prediction.ConfigPrediction}");
             Console.WriteLine($"*******************************************");
         }
     }

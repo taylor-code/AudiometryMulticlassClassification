@@ -919,7 +919,6 @@ Conductive,Left: Severe & Right: Moderately-Severe,High-Frequency | Bilateral,10
 Mixed,Left: AC: Slight | BC: Mild & Right: AC: Mild | BC: Slight,Low-Frequency | Bilateral,30,30,25,15,15,5,40,35,25,15,10,5,30,30,25,20,15,10,35,25,25,15,10,10
 Mixed,Left: AC: Slight | BC: Mild & Right: AC: Mild | BC: Slight,Low-Frequency | Bilateral,35,25,20,15,15,5,35,30,25,20,15,0,30,35,25,20,10,0,40,30,20,10,10,5
 Left: Mixed & Right: Sensorineural,Left: AC: Mild | BC: Slight & Right: Slight,Low-Frequency | Bilateral,40,35,25,10,10,5,30,35,20,15,5,5,30,30,25,15,15,0,35,25,25,15,10,10
-Left: Sensorineural & Right: Mixed,Left: Mild & Right: AC: Slight | BC: Mild,Low-Frequency | Bilateral,40,30,20,20,15,5,30,30,25,15,15,10,35,30,25,15,10,15,40,30,25,15,10,10
 Left: Mixed & Right: Sensorineural,Left: AC: Mild | BC: Slight & Right: Mild,Low-Frequency | Bilateral,40,30,20,15,5,0,35,30,25,20,10,10,35,25,20,15,15,10,35,25,25,20,5,5
 Mixed,Left: AC: Mild | BC: Slight & Right: AC: Slight | BC: Mild,Low-Frequency | Bilateral,40,25,25,20,15,15,35,30,20,10,15,15,30,30,20,15,15,0,35,35,25,20,5,5
 Left: Mixed & Right: Sensorineural,Left: AC: Slight | BC: Mild & Right: Mild,Low-Frequency | Bilateral,35,25,25,15,10,10,40,25,25,15,10,0,30,35,25,20,10,0,35,25,25,20,15,15

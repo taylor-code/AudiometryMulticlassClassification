@@ -5,6 +5,7 @@ using Microsoft.ML;
 using Microsoft.ML.Data;
 using AudiometryClassificationML.Model;
 
+
 namespace AudiometryClassificationML.ConsoleApp
 {
     public static class ModelBuilder
@@ -68,50 +69,56 @@ namespace AudiometryClassificationML.ConsoleApp
         /// <returns> trainingPipeline </returns>
         public static IEstimator<ITransformer> BuildTrainingPipeline()
         {
-            // Extract features and transform the data.
-            var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("col0", "col0")
-                                      .Append(mlContext.Transforms.Categorical.OneHotEncoding(new[] {
-                                          new InputOutputColumnPair("col1", "col1"),
-                                          new InputOutputColumnPair("col2", "col2"),
-                                          new InputOutputColumnPair("col3", "col3"),
-                                          new InputOutputColumnPair("col4", "col4"),
-                                          new InputOutputColumnPair("col5", "col5"),
-                                          new InputOutputColumnPair("col6", "col6"),
-                                          new InputOutputColumnPair("col7", "col7"),
-                                          new InputOutputColumnPair("col8", "col8"),
-                                          new InputOutputColumnPair("col9", "col9"),
-                                          new InputOutputColumnPair("col10", "col10"),
-                                          new InputOutputColumnPair("col11", "col11"),
-                                          new InputOutputColumnPair("col12", "col12"),
-                                          new InputOutputColumnPair("col13", "col13"),
-                                          new InputOutputColumnPair("col14", "col14"),
-                                          new InputOutputColumnPair("col15", "col15"),
-                                          new InputOutputColumnPair("col16", "col16"),
-                                          new InputOutputColumnPair("col17", "col17"),
-                                          new InputOutputColumnPair("col18", "col18"),
-                                          new InputOutputColumnPair("col19", "col19"),
-                                          new InputOutputColumnPair("col20", "col20"),
-                                          new InputOutputColumnPair("col21", "col21"),
-                                          new InputOutputColumnPair("col22", "col22"),
-                                          new InputOutputColumnPair("col23", "col23"),
-                                          new InputOutputColumnPair("col24", "col24"),
-                                          new InputOutputColumnPair("col25", "col25"),
-                                          new InputOutputColumnPair("col26", "col26") }
-                                      ))
-                                      .Append(mlContext.Transforms.Concatenate("Features", new[] {
-                                          "col1",  "col2",  "col3",  "col4",  "col5",  "col6",  "col7",
-                                          "col8",  "col9",  "col10", "col11", "col12", "col13", "col14",
-                                          "col15", "col16", "col17", "col18", "col19", "col20",
-                                          "col21", "col22", "col23", "col24", "col25", "col26" }
-                                      ));
+            var dataPipeline = mlContext.Transforms.Conversion.MapValueToKey(new[] {
+                                      new InputOutputColumnPair("Type",   "Type"),
+                                      new InputOutputColumnPair("Degree", "Degree"),
+                                      new InputOutputColumnPair("Config", "Config")
+                                  })
+                                  // OneHotEncoding() assigns each category a unique value.
+                                  .Append(mlContext.Transforms.Categorical.OneHotEncoding(new[] {
+                                      new InputOutputColumnPair("col3",  "col3"),
+                                      new InputOutputColumnPair("col4",  "col4"),
+                                      new InputOutputColumnPair("col5",  "col5"),
+                                      new InputOutputColumnPair("col6",  "col6"),
+                                      new InputOutputColumnPair("col7",  "col7"),
+                                      new InputOutputColumnPair("col8",  "col8"),
+                                      new InputOutputColumnPair("col9",  "col9"),
+                                      new InputOutputColumnPair("col10", "col10"),
+                                      new InputOutputColumnPair("col11", "col11"),
+                                      new InputOutputColumnPair("col12", "col12"),
+                                      new InputOutputColumnPair("col13", "col13"),
+                                      new InputOutputColumnPair("col14", "col14"),
+                                      new InputOutputColumnPair("col15", "col15"),
+                                      new InputOutputColumnPair("col16", "col16"),
+                                      new InputOutputColumnPair("col17", "col17"),
+                                      new InputOutputColumnPair("col18", "col18"),
+                                      new InputOutputColumnPair("col19", "col19"),
+                                      new InputOutputColumnPair("col20", "col20"),
+                                      new InputOutputColumnPair("col21", "col21"),
+                                      new InputOutputColumnPair("col22", "col22"),
+                                      new InputOutputColumnPair("col23", "col23"),
+                                      new InputOutputColumnPair("col24", "col24"),
+                                      new InputOutputColumnPair("col25", "col25"),
+                                      new InputOutputColumnPair("col26", "col26") }
+                                  ))
+                                  .Append(mlContext.Transforms.Concatenate("Features", new[] {
+                                      "col3",  "col4",  "col5",  "col6",  "col7",  "col8",
+                                      "col9",  "col10", "col11", "col12", "col13", "col14",
+                                      "col15", "col16", "col17", "col18", "col19", "col20",
+                                      "col21", "col22", "col23", "col24", "col25", "col26" }
+                                  ));
 
 
-            // Set the trainer. SdcaMaximumEntropy is the
-            // multi-class classification training algorithm.
-            var trainer = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"col0", "Features")
-                             .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
+            // SdcaMaximumEntropy() is the multi-class classification training algorithm.
+            // Create two trainers: one for the Type column and one for the Degree column.
+            var trainers = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Config", "Features")
+                              .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedConfig", "PredictedLabel"))
+                              .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Degree", "Features"))
+                              .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedDegree", "PredictedLabel"))
+                              .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Type", "Features"))
+                              .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedType", "PredictedLabel"));
 
-            var trainingPipeline = dataProcessPipeline.Append(trainer);
+            var trainingPipeline = dataPipeline.Append(trainers);
 
             return trainingPipeline;
         }
@@ -136,7 +143,7 @@ namespace AudiometryClassificationML.ConsoleApp
             IDataView testDataView = LoadDataFile(TEST_DATA_FILEPATH);
 
             // Evaluate the model's quality metrics.
-            var testMetrics = mlContext.MulticlassClassification.Evaluate(TrainedModel.Transform(testDataView), labelColumnName: @"col0");
+            var testMetrics = mlContext.MulticlassClassification.Evaluate(TrainedModel.Transform(testDataView), labelColumnName: @"Type");
             PrintMulticlassClassificationMetrics(testMetrics);
         }
 

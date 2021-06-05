@@ -4,15 +4,15 @@ namespace AudiometryClassificationML.Model
 {
     public class HearingSetInput
     {
-        [ColumnName("col0"), LoadColumn(0)]
+        [ColumnName("Type"), LoadColumn(0)]
         public string Type { get; set; }
 
 
-        [ColumnName("col1"), LoadColumn(1)]
+        [ColumnName("Degree"), LoadColumn(1)]
         public string Degree { get; set; }
 
 
-        [ColumnName("col2"), LoadColumn(2)]
+        [ColumnName("Config"), LoadColumn(2)]
         public string Config { get; set; }
 
 
