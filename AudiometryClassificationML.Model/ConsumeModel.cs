@@ -24,18 +24,15 @@ namespace AudiometryClassificationML.Model
 
 
         /// <summary>
-        /// Creates a prediction engine to consume the model.
+        /// Loads the model and creates a
+        /// PredictionEngine to consume the model.
         /// </summary>
-        /// <returns> predEngine </returns>
+        /// <returns> a PredictionEngine </returns>
         public static PredictionEngine<HearingSetInput, HearingSetOutput> CreatePredEngine()
         {
             MLContext mlContext = new MLContext();
-
-            // Load model and create prediction engine.
             ITransformer mlModel = mlContext.Model.Load(MODEL_PATH, out var _);
-            var predEngine = mlContext.Model.CreatePredictionEngine<HearingSetInput, HearingSetOutput>(mlModel);
-
-            return predEngine;
+            return mlContext.Model.CreatePredictionEngine<HearingSetInput, HearingSetOutput>(mlModel);
         }
     }
 }

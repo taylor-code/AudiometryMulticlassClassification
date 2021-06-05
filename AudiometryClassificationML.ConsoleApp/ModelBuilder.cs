@@ -45,23 +45,18 @@ namespace AudiometryClassificationML.ConsoleApp
             mlContext = new MLContext(seed: 1);
             Console.WriteLine("Initialized MLContext.");
 
-            // Load data.
             TrainingDataView = LoadDataFile(TRAIN_DATA_FILEPATH);
             Console.WriteLine("Loaded the training data.");
 
-            // Build training pipeline.
             TrainingPipeline = BuildTrainingPipeline();
             Console.WriteLine("Processed the data.");
 
-            // Train model.
             Console.WriteLine("Training the model...");
             TrainedModel = TrainModel();
 
-            // Evaluate model.
             Console.WriteLine("Evaluating the model...");
             Evaluate();
 
-            // Save model.
             SaveModel(TrainingDataView.Schema);
             Console.WriteLine("Saved the model.");
         }
