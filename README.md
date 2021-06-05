@@ -8,6 +8,14 @@ Model Training Time: 5&ndash;6 minutes
 
 ## Classifications
 
+The program can classify combinations of the types, degrees, and configurations.
+
+Example:
+- `Type`: Left: Sensorineural & Right: Mixed
+- `Degree`: Left: Mild & Right: AC: Slight | BC: Mild
+- `Config`: Low-Frequency | Bilateral
+
+
 ### Type
 Predicts one of the following hearing loss types:
 1. Conductive
@@ -25,10 +33,6 @@ The main degrees are:
 6. Severe
 7. Profound
 
-The program may classify combinations of the degrees, such as:
-- AC: Profound | BC: Severe
-- Left: Mild & Right: Slight
-
 ### Configuration
 The main configurations are:
 1. Bilateral
@@ -37,10 +41,6 @@ The main configurations are:
 4. Asymmetrical
 5. Low-Frequency
 6. High-Frequency
-
-The program may classify combinations of the configurations, such as:
-- Bilateral | Symmetrical
-- Low-Frequency | Bilateral
 
 ---
 
