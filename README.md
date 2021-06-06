@@ -17,7 +17,7 @@ These four metrics are represented on a scale of 0.00 to 1.00. For a high-perfor
 
 ### Current Mutli-Class Metrics
 
-Here are the mutli-class metrics for this program (as of 6/5/2021):
+The mutli-class metrics for this program are:
 ```
    Macro Accuracy     = 0.8696
    Micro Accuracy     = 0.9498
@@ -31,13 +31,13 @@ Here are the mutli-class metrics for this program (as of 6/5/2021):
 
 The program predicts the following categories:
 
-### Type
+#### Type
 1. Conductive
 2. Mixed
 3. None (No Hearing Loss)
 4. Sensorineural
 
-### Degree
+#### Degree
 1. Normal
 2. Slight
 3. Mild
@@ -46,7 +46,7 @@ The program predicts the following categories:
 6. Severe
 7. Profound
 
-### Configuration
+#### Configuration
 1. Bilateral
 2. Unilateral
 3. Symmetrical
@@ -54,9 +54,9 @@ The program predicts the following categories:
 5. Low-Frequency
 6. High-Frequency
 
-## Classification Examples
+### Classification Examples
 
-### Example 1
+#### Example 1
 
 Given the decibel values:
 ```json
@@ -107,7 +107,7 @@ Degree = "Moderate"
 Config = "Bilateral | Symmetrical"
 ```
 
-### Example 2
+#### Example 2
 
 Given the decibel values:
 ```json
