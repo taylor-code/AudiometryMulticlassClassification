@@ -29,7 +29,7 @@ Here are the mutli-class metrics for this program (as of 6/5/2021):
 
 ## Classifications
 
-The main categories are:
+The program predicts the following categories:
 
 ### Type
 1. Conductive
@@ -58,7 +58,7 @@ The main categories are:
 
 ### Example 1
 
-Given these decibel values:
+Given the decibel values:
 ```json
   {
     "AC": {
@@ -109,7 +109,7 @@ Config = "Bilateral | Symmetrical"
 
 ### Example 2
 
-Given these decibel values:
+Given the decibel values:
 ```json
   {
     "AC": {
