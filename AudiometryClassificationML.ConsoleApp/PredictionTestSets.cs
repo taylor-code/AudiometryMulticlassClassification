@@ -131,7 +131,7 @@ namespace AudiometryClassificationML.ConsoleApp
             BC_R_8000 = 50
         };
 
-        //40,30,20,20,15,5, 30,30,25,15,15,10, 35,30,25,15,10,15, 40,30,25,15,10,10
+
         public static readonly HearingSetInput lowFrequencySet = new HearingSetInput()
         {
             //Type      = "Left: Sensorineural & Right: Mixed",
