@@ -16,99 +16,99 @@ namespace AudiometryClassificationML.Model
         public string Config { get; set; }
 
 
-        [ColumnName("col3"), LoadColumn(3)]
+        [ColumnName("AC_L_250"), LoadColumn(3)]
         public int AC_L_250 { get; set; }
 
 
-        [ColumnName("col4"), LoadColumn(4)]
+        [ColumnName("AC_L_500"), LoadColumn(4)]
         public int AC_L_500 { get; set; }
 
 
-        [ColumnName("col5"), LoadColumn(5)]
+        [ColumnName("AC_L_1000"), LoadColumn(5)]
         public int AC_L_1000 { get; set; }
 
 
-        [ColumnName("col6"), LoadColumn(6)]
+        [ColumnName("AC_L_2000"), LoadColumn(6)]
         public int AC_L_2000 { get; set; }
 
 
-        [ColumnName("col7"), LoadColumn(7)]
+        [ColumnName("AC_L_4000"), LoadColumn(7)]
         public int AC_L_4000 { get; set; }
 
 
-        [ColumnName("col8"), LoadColumn(8)]
+        [ColumnName("AC_L_8000"), LoadColumn(8)]
         public int AC_L_8000 { get; set; }
 
 
-        [ColumnName("col9"), LoadColumn(9)]
+        [ColumnName("AC_R_250"), LoadColumn(9)]
         public int AC_R_250 { get; set; }
 
 
-        [ColumnName("col10"), LoadColumn(10)]
+        [ColumnName("AC_R_500"), LoadColumn(10)]
         public int AC_R_500 { get; set; }
 
 
-        [ColumnName("col11"), LoadColumn(11)]
+        [ColumnName("AC_R_1000"), LoadColumn(11)]
         public int AC_R_1000 { get; set; }
 
 
-        [ColumnName("col12"), LoadColumn(12)]
+        [ColumnName("AC_R_2000"), LoadColumn(12)]
         public int AC_R_2000 { get; set; }
 
 
-        [ColumnName("col13"), LoadColumn(13)]
+        [ColumnName("AC_R_4000"), LoadColumn(13)]
         public int AC_R_4000 { get; set; }
 
 
-        [ColumnName("col14"), LoadColumn(14)]
+        [ColumnName("AC_R_8000"), LoadColumn(14)]
         public int AC_R_8000 { get; set; }
 
 
-        [ColumnName("col15"), LoadColumn(15)]
+        [ColumnName("BC_L_250"), LoadColumn(15)]
         public int BC_L_250 { get; set; }
 
 
-        [ColumnName("col16"), LoadColumn(16)]
+        [ColumnName("BC_L_500"), LoadColumn(16)]
         public int BC_L_500 { get; set; }
 
 
-        [ColumnName("col17"), LoadColumn(17)]
+        [ColumnName("BC_L_1000"), LoadColumn(17)]
         public int BC_L_1000 { get; set; }
 
 
-        [ColumnName("col18"), LoadColumn(18)]
+        [ColumnName("BC_L_2000"), LoadColumn(18)]
         public int BC_L_2000 { get; set; }
 
 
-        [ColumnName("col19"), LoadColumn(19)]
+        [ColumnName("BC_L_4000"), LoadColumn(19)]
         public int BC_L_4000 { get; set; }
 
 
-        [ColumnName("col20"), LoadColumn(20)]
+        [ColumnName("BC_L_8000"), LoadColumn(20)]
         public int BC_L_8000 { get; set; }
 
 
-        [ColumnName("col21"), LoadColumn(21)]
+        [ColumnName("BC_R_250"), LoadColumn(21)]
         public int BC_R_250 { get; set; }
 
 
-        [ColumnName("col22"), LoadColumn(22)]
+        [ColumnName("BC_R_500"), LoadColumn(22)]
         public int BC_R_500 { get; set; }
 
 
-        [ColumnName("col23"), LoadColumn(23)]
+        [ColumnName("BC_R_1000"), LoadColumn(23)]
         public int BC_R_1000 { get; set; }
 
 
-        [ColumnName("col24"), LoadColumn(24)]
+        [ColumnName("BC_R_2000"), LoadColumn(24)]
         public int BC_R_2000 { get; set; }
 
 
-        [ColumnName("col25"), LoadColumn(25)]
+        [ColumnName("BC_R_4000"), LoadColumn(25)]
         public int BC_R_4000 { get; set; }
 
 
-        [ColumnName("col26"), LoadColumn(26)]
+        [ColumnName("BC_R_8000"), LoadColumn(26)]
         public int BC_R_8000 { get; set; }
 
     }

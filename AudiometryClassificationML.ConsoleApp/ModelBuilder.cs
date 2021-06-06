@@ -76,36 +76,36 @@ namespace AudiometryClassificationML.ConsoleApp
                                   })
                                   // OneHotEncoding() assigns each category a unique value.
                                   .Append(mlContext.Transforms.Categorical.OneHotEncoding(new[] {
-                                      new InputOutputColumnPair("col3",  "col3"),
-                                      new InputOutputColumnPair("col4",  "col4"),
-                                      new InputOutputColumnPair("col5",  "col5"),
-                                      new InputOutputColumnPair("col6",  "col6"),
-                                      new InputOutputColumnPair("col7",  "col7"),
-                                      new InputOutputColumnPair("col8",  "col8"),
-                                      new InputOutputColumnPair("col9",  "col9"),
-                                      new InputOutputColumnPair("col10", "col10"),
-                                      new InputOutputColumnPair("col11", "col11"),
-                                      new InputOutputColumnPair("col12", "col12"),
-                                      new InputOutputColumnPair("col13", "col13"),
-                                      new InputOutputColumnPair("col14", "col14"),
-                                      new InputOutputColumnPair("col15", "col15"),
-                                      new InputOutputColumnPair("col16", "col16"),
-                                      new InputOutputColumnPair("col17", "col17"),
-                                      new InputOutputColumnPair("col18", "col18"),
-                                      new InputOutputColumnPair("col19", "col19"),
-                                      new InputOutputColumnPair("col20", "col20"),
-                                      new InputOutputColumnPair("col21", "col21"),
-                                      new InputOutputColumnPair("col22", "col22"),
-                                      new InputOutputColumnPair("col23", "col23"),
-                                      new InputOutputColumnPair("col24", "col24"),
-                                      new InputOutputColumnPair("col25", "col25"),
-                                      new InputOutputColumnPair("col26", "col26") }
+                                      new InputOutputColumnPair("AC_L_250",  "AC_L_250"),
+                                      new InputOutputColumnPair("AC_L_500",  "AC_L_500"),
+                                      new InputOutputColumnPair("AC_L_1000", "AC_L_1000"),
+                                      new InputOutputColumnPair("AC_L_2000", "AC_L_2000"),
+                                      new InputOutputColumnPair("AC_L_4000", "AC_L_4000"),
+                                      new InputOutputColumnPair("AC_L_8000", "AC_L_8000"),
+                                      new InputOutputColumnPair("AC_R_250",  "AC_R_250"),
+                                      new InputOutputColumnPair("AC_R_500",  "AC_R_500"),
+                                      new InputOutputColumnPair("AC_R_1000", "AC_R_1000"),
+                                      new InputOutputColumnPair("AC_R_2000", "AC_R_2000"),
+                                      new InputOutputColumnPair("AC_R_4000", "AC_R_4000"),
+                                      new InputOutputColumnPair("AC_R_8000", "AC_R_8000"),
+                                      new InputOutputColumnPair("BC_L_250",  "BC_L_250"),
+                                      new InputOutputColumnPair("BC_L_500",  "BC_L_500"),
+                                      new InputOutputColumnPair("BC_L_1000", "BC_L_1000"),
+                                      new InputOutputColumnPair("BC_L_2000", "BC_L_2000"),
+                                      new InputOutputColumnPair("BC_L_4000", "BC_L_4000"),
+                                      new InputOutputColumnPair("BC_L_8000", "BC_L_8000"),
+                                      new InputOutputColumnPair("BC_R_250",  "BC_R_250"),
+                                      new InputOutputColumnPair("BC_R_500",  "BC_R_500"),
+                                      new InputOutputColumnPair("BC_R_1000", "BC_R_1000"),
+                                      new InputOutputColumnPair("BC_R_2000", "BC_R_2000"),
+                                      new InputOutputColumnPair("BC_R_4000", "BC_R_4000"),
+                                      new InputOutputColumnPair("BC_R_8000", "BC_R_8000"), }
                                   ))
                                   .Append(mlContext.Transforms.Concatenate("Features", new[] {
-                                      "col3",  "col4",  "col5",  "col6",  "col7",  "col8",
-                                      "col9",  "col10", "col11", "col12", "col13", "col14",
-                                      "col15", "col16", "col17", "col18", "col19", "col20",
-                                      "col21", "col22", "col23", "col24", "col25", "col26" }
+                                      "AC_L_250",  "AC_L_500",  "AC_L_1000",  "AC_L_2000",  "AC_L_4000",  "AC_L_8000",
+                                      "AC_R_250",  "AC_R_500",  "AC_R_1000",  "AC_R_2000",  "AC_R_4000",  "AC_R_8000",
+                                      "BC_L_250",  "BC_L_500",  "BC_L_1000",  "BC_L_2000",  "BC_L_4000",  "BC_L_8000",
+                                      "BC_R_250",  "BC_R_500",  "BC_R_1000",  "BC_R_2000",  "BC_R_4000",  "BC_R_8000" }
                                   ));
 
 
