@@ -1,4 +1,4 @@
-# AudiometryMultiClassClassification
+# Audiometry Multi-Class Classification
 
 C# ML.NET program to predict the type, degree, and configuration of hearing loss.
 
