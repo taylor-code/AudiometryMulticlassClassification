@@ -19,10 +19,10 @@ These four metrics are represented on a scale of 0.00 to 1.00. For a high-perfor
 
 The mutli-class metrics for this program are:
 ```
-   Macro Accuracy     = 0.8696
-   Micro Accuracy     = 0.9498
-   Log-Loss           = 0.1738
-   Log-Loss Reduction = 0.9227
+   Macro Accuracy     = 0.8703
+   Micro Accuracy     = 0.9480
+   Log-Loss           = 0.1750
+   Log-Loss Reduction = 0.9221
 ```
 
 ---

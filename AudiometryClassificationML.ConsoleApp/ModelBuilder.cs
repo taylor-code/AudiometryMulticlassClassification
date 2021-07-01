@@ -67,7 +67,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// Extracts and transforms the data.
         /// </summary>
         /// <returns> trainingPipeline </returns>
-        public static IEstimator<ITransformer> BuildTrainingPipeline()
+        private static IEstimator<ITransformer> BuildTrainingPipeline()
         {
             var dataPipeline = mlContext.Transforms.Conversion.MapValueToKey(new[] {
                                       new InputOutputColumnPair("Type",   "Type"),
@@ -110,7 +110,7 @@ namespace AudiometryClassificationML.ConsoleApp
 
 
             // SdcaMaximumEntropy() is the multi-class classification training algorithm.
-            // Create two trainers: one for the Type column and one for the Degree column.
+            // Create three trainers: one for each prediction (Config, Degree, and Type).
             var trainers = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Config", "Features")
                               .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedConfig", "PredictedLabel"))
                               .Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Degree", "Features"))
@@ -128,7 +128,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// Fits the training data to the training pipeline.
         /// </summary>
         /// <returns> The model </returns>
-        public static ITransformer TrainModel()
+        private static ITransformer TrainModel()
         {
             return TrainingPipeline.Fit(TrainingDataView);
         }
@@ -182,7 +182,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// </summary>
         /// <param name="relativePath"></param>
         /// <returns> The full path </returns>
-        public static string GetAbsolutePath(string relativePath)
+        private static string GetAbsolutePath(string relativePath)
         {
             FileInfo dataRoot = new FileInfo(typeof(Program).Assembly.Location);
             string assemblyFolderPath = dataRoot.Directory.FullName;
@@ -196,7 +196,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// and log-loss reduction of the model evaluation.
         /// </summary>
         /// <param name="metrics"></param>
-        public static void PrintMulticlassClassificationMetrics(MulticlassClassificationMetrics metrics)
+        private static void PrintMulticlassClassificationMetrics(MulticlassClassificationMetrics metrics)
         {
             /*
              * Metrics for Multi-Class Classification:

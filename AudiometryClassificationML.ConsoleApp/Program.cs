@@ -12,7 +12,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// After initializing the model, uses it
         /// to predict values for hearing sets.
         /// </summary>
-        static void Main()
+        public static void Main()
         {
             InitializeModel();
 
@@ -31,7 +31,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// Runs the model creation process and
         /// times how long the process takes.
         /// </summary>
-        static void InitializeModel()
+        private static void InitializeModel()
         {
             var stopWatch = new Stopwatch();
 
@@ -47,7 +47,7 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        static void PredictTypes(HearingSetInput hearingSet)
+        private static void PredictTypes(HearingSetInput hearingSet)
         {
             Console.WriteLine("\nUsing model to make predictions for the following data:\n");
             PrintDataSet(hearingSet);
@@ -55,7 +55,7 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        static void PrintDataSet(HearingSetInput hearingSet)
+        private static void PrintDataSet(HearingSetInput hearingSet)
         {
             Console.WriteLine($"AC_L_250:  { hearingSet.AC_L_250 }");
             Console.WriteLine($"AC_L_500:  { hearingSet.AC_L_500 }");
@@ -84,7 +84,7 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        static void PrintPredictionResults(HearingSetOutput prediction)
+        private static void PrintPredictionResults(HearingSetOutput prediction)
         {
             Console.WriteLine($"\n*******************************************");
             Console.WriteLine($"*             Prediction Metrics             ");
