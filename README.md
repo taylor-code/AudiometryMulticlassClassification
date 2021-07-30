@@ -63,40 +63,40 @@ The program predicts the following categories:
 Given the decibel values:
 ```json
   {
-    "AC": {
-      "Left Ear": {
-        "250 Hz": 40,
-        "500 Hz": 30,
-        "1000 Hz": 20,
-        "2000 Hz": 20,
-        "4000 Hz": 15,
-        "8000 Hz": 5
+    "Left Ear": {
+      "AC": {
+        "250 Hz": 35,
+        "500 Hz": 40,
+        "1000 Hz": 35,
+        "2000 Hz": 30,
+        "4000 Hz": 40,
+        "8000 Hz": 35
       },
-      "Right Ear": {
-        "250 Hz": 30,
-        "500 Hz": 30,
+      "BC": {
+        "250 Hz": 20,
+        "500 Hz": 20,
         "1000 Hz": 25,
-        "2000 Hz": 15,
-        "4000 Hz": 15,
-        "8000 Hz": 10
+        "2000 Hz": 20,
+        "4000 Hz": 20,
+        "8000 Hz": 20
       }
     },
-    "BC": {
-      "Left Ear": {
-        "250 Hz": 35,
-        "500 Hz": 30,
-        "1000 Hz": 25,
-        "2000 Hz": 15,
-        "4000 Hz": 10,
-        "8000 Hz": 15
+    "Right Ear": {
+      "BC": {
+        "250 Hz": -10,
+        "500 Hz": 10,
+        "1000 Hz": 0,
+        "2000 Hz": 5,
+        "4000 Hz": 45,
+        "8000 Hz": 45
       },
-      "Right Ear": {
-        "250 Hz": 40,
-        "500 Hz": 30,
-        "1000 Hz": 25,
-        "2000 Hz": 15,
-        "4000 Hz": 10,
-        "8000 Hz": 10
+      "AC": {
+        "250 Hz": -5,
+        "500 Hz": -5,
+        "1000 Hz": -10,
+        "2000 Hz": -5,
+        "4000 Hz": 40,
+        "8000 Hz": 30
       }
     }
   }
@@ -104,9 +104,9 @@ Given the decibel values:
 
 The application correctly predicts the following labels:
 ```
-Type   = "Left: Sensorineural & Right: Mixed"
-Degree = "Left: Mild & Right: AC: Slight | BC: Mild"
-Config = "Low-Frequency | Bilateral"
+Type   = "Mixed"
+Degree = "Left: AC: Mild | BC: Slight & Right: AC: Moderate | BC: Mild"
+Config = "Right: High-Frequency | Bilateral | Asymmetrical"
 ```
 
 ---
