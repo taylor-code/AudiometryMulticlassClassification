@@ -21,7 +21,7 @@ The average performance metrics for this program are:
 ```
    Build Time         = 8:26 (Min:Sec)
    Prediction Time    = 623 ms
-   Macro Accuracy     = 0.7422
+   Macro Accuracy     = 0.7429
    Micro Accuracy     = 0.9824
    Log-Loss           = 0.0784
    Log-Loss Reduction = 0.9574
