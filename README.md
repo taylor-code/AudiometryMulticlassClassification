@@ -2,9 +2,6 @@
 
 C# ML.NET program to predict the type, degree, and configuration of hearing loss.
 
-Average Build Time: 8:26 (Min:Sec)
-Average Prediction Time: 623 ms
-
 ---
 
 ## Multi-Class Classification Metrics:
