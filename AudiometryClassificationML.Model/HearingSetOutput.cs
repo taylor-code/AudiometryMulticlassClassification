@@ -11,7 +11,6 @@ namespace AudiometryClassificationML.Model
         public string DegreePrediction { get; set; }
 
         [ColumnName("PredictedType")]
-        public string  TypePrediction { get; set; }
-        public float[] Score          { get; set; }
+        public string  TypePrediction  { get; set; }
     }
 }

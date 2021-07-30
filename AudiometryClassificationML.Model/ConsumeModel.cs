@@ -18,8 +18,7 @@ namespace AudiometryClassificationML.Model
         /// <returns> result, an instance of HearingSetOutput </returns>
         public static HearingSetOutput Predict(HearingSetInput input)
         {
-            HearingSetOutput result = PredEngine.Value.Predict(input);
-            return result;
+            return PredEngine.Value.Predict(input);
         }
 
 
