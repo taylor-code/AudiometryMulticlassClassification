@@ -2,7 +2,8 @@
 
 C# ML.NET program to predict the type, degree, and configuration of hearing loss.
 
-Model Training Time: 5&ndash;6 minutes
+Average Build Time: 8:26 (Min:Sec)
+Average Prediction Time: 623 ms
 
 ---
 
@@ -15,17 +16,19 @@ Model Training Time: 5&ndash;6 minutes
 
 These four metrics are represented on a scale of 0.00 to 1.00. For a high-performing model, the log-loss should be close to 0.00. Macro-accuracy, micro-accuracy, and log-loss reduction should be close to 1.00.<sup>[1](https://docs.microsoft.com/en-us/dotnet/machine-learning/resources/metrics)</sup>
 
-Class representation accounts for the disparity between the macro-average accuracy and the micro-average accuracy. A disproportionate class representation is expected in audiology. Given the class imbalance, micro accuracy is a better representation of this model's performance.
+### Performance
 
-### Current Mutli-Class Metrics
-
-The average mutli-class metrics for this program are:
+The average performance metrics for this program are:
 ```
+   Build Time         = 8:26 (Min:Sec)
+   Prediction Time    = 623 ms
    Macro Accuracy     = 0.7422
    Micro Accuracy     = 0.9824
    Log-Loss           = 0.0784
    Log-Loss Reduction = 0.9574
 ```
+
+Class representation accounts for the disparity between the macro-average accuracy and the micro-average accuracy. A disproportionate class representation is expected in audiology. Given the class imbalance, micro accuracy is a better representation of this model's performance.
 
 ---
 
