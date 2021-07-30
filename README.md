@@ -4,7 +4,9 @@ C# ML.NET program to predict the type, degree, and configuration of hearing loss
 
 ---
 
-## Multi-Class Classification Metrics:
+## Performance
+
+The employed multi-class classification metrics are:
 
 1. Micro Accuracy
 2. Macro Accuracy
@@ -13,7 +15,7 @@ C# ML.NET program to predict the type, degree, and configuration of hearing loss
 
 These four metrics are represented on a scale of 0.00 to 1.00. For a high-performing model, the log-loss should be close to 0.00. Macro-accuracy, micro-accuracy, and log-loss reduction should be close to 1.00.<sup>[1](https://docs.microsoft.com/en-us/dotnet/machine-learning/resources/metrics)</sup>
 
-### Performance
+### Model's Performance
 
 The average performance metrics for this program are:
 ```
