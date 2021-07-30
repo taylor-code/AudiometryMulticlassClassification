@@ -15,14 +15,16 @@ Model Training Time: 5&ndash;6 minutes
 
 These four metrics are represented on a scale of 0.00 to 1.00. For a high-performing model, the log-loss should be close to 0.00. Macro-accuracy, micro-accuracy, and log-loss reduction should be close to 1.00.<sup>[1](https://docs.microsoft.com/en-us/dotnet/machine-learning/resources/metrics)</sup>
 
+Class representation accounts for the disparity between the macro-average accuracy and the micro-average accuracy. A disproportionate class representation is expected in audiology. Given the class imbalance, micro accuracy is a better representation of this model's performance.
+
 ### Current Mutli-Class Metrics
 
-The mutli-class metrics for this program are:
+The average mutli-class metrics for this program are:
 ```
-   Macro Accuracy     = 0.8703
-   Micro Accuracy     = 0.9480
-   Log-Loss           = 0.1750
-   Log-Loss Reduction = 0.9221
+   Macro Accuracy     = 0.7422
+   Micro Accuracy     = 0.9824
+   Log-Loss           = 0.0784
+   Log-Loss Reduction = 0.9574
 ```
 
 ---
@@ -32,10 +34,10 @@ The mutli-class metrics for this program are:
 The program predicts the following categories:
 
 #### Type
-1. Conductive
-2. Mixed
-3. None (No Hearing Loss)
-4. Sensorineural
+1. Normal (No Hearing Loss)
+2. Conductive
+3. Sensorineural
+4. Mixed
 
 #### Degree
 1. Normal
@@ -54,60 +56,7 @@ The program predicts the following categories:
 5. Low-Frequency
 6. High-Frequency
 
-### Classification Examples
-
-#### Example 1
-
-Given the decibel values:
-```json
-  {
-    "AC": {
-      "Left Ear": {
-        "250 Hz": 40,
-        "500 Hz": 45,
-        "1000 Hz": 55,
-        "2000 Hz": 45,
-        "4000 Hz": 45,
-        "8000 Hz": 45
-      },
-      "Right Ear": {
-        "250 Hz": 50,
-        "500 Hz": 50,
-        "1000 Hz": 40,
-        "2000 Hz": 45,
-        "4000 Hz": 45,
-        "8000 Hz": 45
-      }
-    },
-    "BC": {
-      "Left Ear": {
-        "250 Hz": 50,
-        "500 Hz": 45,
-        "1000 Hz": 45,
-        "2000 Hz": 55,
-        "4000 Hz": 45,
-        "8000 Hz": 55
-      },
-      "Right Ear": {
-        "250 Hz": 50,
-        "500 Hz": 50,
-        "1000 Hz": 50,
-        "2000 Hz": 45,
-        "4000 Hz": 45,
-        "8000 Hz": 50
-      }
-    }
-  }
-```
-
-The application correctly predicts the following labels:
-```
-Type   = "Sensorineural"
-Degree = "Moderate"
-Config = "Bilateral | Symmetrical"
-```
-
-#### Example 2
+### Classification Example
 
 Given the decibel values:
 ```json
