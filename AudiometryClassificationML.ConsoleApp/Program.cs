@@ -80,35 +80,36 @@ namespace AudiometryClassificationML.ConsoleApp
 
         private static void PrintDataSet(HearingSetInput instance)
         {
-            Console.WriteLine($"AC_L_250:  { instance.AC_L_250 }");
-            Console.WriteLine($"AC_L_500:  { instance.AC_L_500 }");
-            Console.WriteLine($"AC_L_1000: { instance.AC_L_1000 }");
-            Console.WriteLine($"AC_L_2000: { instance.AC_L_2000 }");
-            Console.WriteLine($"AC_L_4000: { instance.AC_L_4000 }");
-            Console.WriteLine($"AC_L_8000: { instance.AC_L_8000 }");
-            Console.WriteLine($"AC_R_250:  { instance.AC_R_250 }");
-            Console.WriteLine($"AC_R_500:  { instance.AC_R_500 }");
-            Console.WriteLine($"AC_R_1000: { instance.AC_R_1000 }");
-            Console.WriteLine($"AC_R_2000: { instance.AC_R_2000 }");
-            Console.WriteLine($"AC_R_4000: { instance.AC_R_4000 }");
-            Console.WriteLine($"AC_R_8000: { instance.AC_R_8000 }");
-            Console.WriteLine($"BC_L_250:  { instance.BC_L_250 }");
-            Console.WriteLine($"BC_L_500:  { instance.BC_L_500 }");
-            Console.WriteLine($"BC_L_1000: { instance.BC_L_1000 }");
-            Console.WriteLine($"BC_L_2000: { instance.BC_L_2000 }");
-            Console.WriteLine($"BC_L_4000: { instance.BC_L_4000 }");
-            Console.WriteLine($"BC_L_8000: { instance.BC_L_8000 }");
-            Console.WriteLine($"BC_R_250:  { instance.BC_R_250 }");
-            Console.WriteLine($"BC_R_500:  { instance.BC_R_500 }");
-            Console.WriteLine($"BC_R_1000: { instance.BC_R_1000 }");
-            Console.WriteLine($"BC_R_2000: { instance.BC_R_2000 }");
-            Console.WriteLine($"BC_R_4000: { instance.BC_R_4000 }");
-            Console.WriteLine($"BC_R_8000: { instance.BC_R_8000 }");
-            Console.WriteLine("----------------------------------");
+            Console.WriteLine($"L_AC_250:  { instance.L_AC_250 }");
+            Console.WriteLine($"L_AC_500:  { instance.L_AC_500 }");
+            Console.WriteLine($"L_AC_1000: { instance.L_AC_1000 }");
+            Console.WriteLine($"L_AC_2000: { instance.L_AC_2000 }");
+            Console.WriteLine($"L_AC_4000: { instance.L_AC_4000 }");
+            Console.WriteLine($"L_AC_8000: { instance.L_AC_8000 }");
+            Console.WriteLine($"L_BC_250:  { instance.L_BC_250 }");
+            Console.WriteLine($"L_BC_500:  { instance.L_BC_500 }");
+            Console.WriteLine($"L_BC_1000: { instance.L_BC_1000 }");
+            Console.WriteLine($"L_BC_2000: { instance.L_BC_2000 }");
+            Console.WriteLine($"L_BC_4000: { instance.L_BC_4000 }");
+            Console.WriteLine($"L_BC_8000: { instance.L_BC_8000 }");
+            Console.WriteLine($"R_AC_250:  { instance.R_AC_250 }");
+            Console.WriteLine($"R_AC_500:  { instance.R_AC_500 }");
+            Console.WriteLine($"R_AC_1000: { instance.R_AC_1000 }");
+            Console.WriteLine($"R_AC_2000: { instance.R_AC_2000 }");
+            Console.WriteLine($"R_AC_4000: { instance.R_AC_4000 }");
+            Console.WriteLine($"R_AC_8000: { instance.R_AC_8000 }");
+            Console.WriteLine($"R_BC_250:  { instance.R_BC_250 }");
+            Console.WriteLine($"R_BC_500:  { instance.R_BC_500 }");
+            Console.WriteLine($"R_BC_1000: { instance.R_BC_1000 }");
+            Console.WriteLine($"R_BC_2000: { instance.R_BC_2000 }");
+            Console.WriteLine($"R_BC_4000: { instance.R_BC_4000 }");
+            Console.WriteLine($"R_BC_8000: { instance.R_BC_8000 }");
+            Console.WriteLine("\n----------------------------------");
             Console.WriteLine("    Desired Prediction Labels:    ");
             Console.WriteLine($"Type:      { instance.Type }");
             Console.WriteLine($"Degree:    { instance.Degree }");
             Console.WriteLine($"Config:    { instance.Config }");
+            Console.WriteLine("----------------------------------\n");
         }
 
 
