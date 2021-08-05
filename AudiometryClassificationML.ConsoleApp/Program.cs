@@ -19,8 +19,9 @@ namespace AudiometryClassificationML.ConsoleApp
         {
             InitializeModel();
 
-            List<HearingSetInput> predInstances = ReadPredictionCSV();
+            List<HearingInstanceInput> predInstances = ReadPredictionCSV();
 
+            // Time how long each prediction takes.
             foreach (var instance in predInstances)
             {
                 Stopwatch stopWatch = new Stopwatch();
@@ -28,7 +29,7 @@ namespace AudiometryClassificationML.ConsoleApp
                 stopWatch.Start();
                 PredictLabels(instance);
                 stopWatch.Stop();
-                Console.WriteLine($"\n\nElapsed Time: {stopWatch.ElapsedMilliseconds} (ms)");
+                Console.WriteLine($"\n\nPrediction Time: {stopWatch.ElapsedMilliseconds} (ms)");
             }
 
             Console.WriteLine("\n\nPress any key to quit.");
@@ -59,18 +60,18 @@ namespace AudiometryClassificationML.ConsoleApp
         /// <summary>
         /// Reads in the instances to predict.
         /// </summary>
-        /// <returns> A list of HearingSetInput instances. </returns>
-        public static List<HearingSetInput> ReadPredictionCSV()
+        /// <returns> A list of HearingInstanceInput instances. </returns>
+        public static List<HearingInstanceInput> ReadPredictionCSV()
         {
-            List<HearingSetInput> values = File.ReadAllLines(@"..\..\..\Data\AudiometryPred.csv")
+            List<HearingInstanceInput> values = File.ReadAllLines(@"..\..\..\Data\AudiometryPred.csv")
                                                .Skip(1)
-                                               .Select(v => HearingSetInput.ReadFromCSV(v))
+                                               .Select(v => HearingInstanceInput.ReadFromCSV(v))
                                                .ToList();
             return values;
         }
 
 
-        private static void PredictLabels(HearingSetInput hearingSet)
+        private static void PredictLabels(HearingInstanceInput hearingSet)
         {
             Console.WriteLine("\nUsing model to make predictions for the following data:\n");
             PrintDataSet(hearingSet);
@@ -78,7 +79,7 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        private static void PrintDataSet(HearingSetInput instance)
+        private static void PrintDataSet(HearingInstanceInput instance)
         {
             Console.WriteLine($"L_AC_250:  { instance.L_AC_250 }");
             Console.WriteLine($"L_AC_500:  { instance.L_AC_500 }");
@@ -113,7 +114,7 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        private static void PrintPredictionResults(HearingSetOutput prediction)
+        private static void PrintPredictionResults(HearingInstanceOutput prediction)
         {
             Console.WriteLine($"\n*******************************************");
             Console.WriteLine($"*             Prediction Metrics             ");

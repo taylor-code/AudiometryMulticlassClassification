@@ -160,7 +160,7 @@ namespace AudiometryClassificationML.ConsoleApp
         /// <returns>The IDataView object </returns>
         private static IDataView LoadDataFile(string filepath)
         {
-            return mlContext.Data.LoadFromTextFile<HearingSetInput>(
+            return mlContext.Data.LoadFromTextFile<HearingInstanceInput>(
                      path: filepath,
                      hasHeader: true,
                      separatorChar: ','
@@ -216,6 +216,9 @@ namespace AudiometryClassificationML.ConsoleApp
             Console.WriteLine($"*   Log-Loss           = {metrics.LogLoss:0.####}");
             Console.WriteLine($"*   Log-Loss Reduction = {metrics.LogLossReduction:0.####}");
             Console.WriteLine($"*****************************************************\n");
+
+            // Print the Confusion Matrix for type prediction.
+            Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
         }
 
     }

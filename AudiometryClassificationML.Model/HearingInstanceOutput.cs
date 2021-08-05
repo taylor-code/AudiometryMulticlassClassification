@@ -2,7 +2,7 @@ using Microsoft.ML.Data;
 
 namespace AudiometryClassificationML.Model
 {
-    public class HearingSetOutput
+    public class HearingInstanceOutput
     {
         [ColumnName("PredictedConfig")]
         public string ConfigPrediction { get; set; }

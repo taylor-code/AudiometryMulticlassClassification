@@ -3,8 +3,12 @@ using System;
 
 namespace AudiometryClassificationML.Model
 {
-    public class HearingSetInput
+    public class HearingInstanceInput
     {
+        /**********************************************/
+        /*                 ATTRIBUTES                 */
+        /**********************************************/
+
         [ColumnName("Type"), LoadColumn(0)]
         public string Type { get; set; }
 
@@ -111,13 +115,23 @@ namespace AudiometryClassificationML.Model
 
         [ColumnName("R_BC_8000"), LoadColumn(26)]
         public int R_BC_8000 { get; set; }
-      
-      
-        public static HearingSetInput ReadFromCSV(string csvLine)
+
+
+
+        /**********************************************/
+        /*                   METHOD                   */
+        /**********************************************/
+
+        /// <summary>
+        /// Converts csvLine into a HearingInstanceInput object.
+        /// </summary>
+        /// <param name="csvLine"></param>
+        /// <returns></returns>
+        public static HearingInstanceInput ReadFromCSV(string csvLine)
         {
             string[] values = csvLine.Split(',');
 
-            return new HearingSetInput()
+            return new HearingInstanceInput()
             {
                 Type      = values[0],
                 Degree    = values[1],
