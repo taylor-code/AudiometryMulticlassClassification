@@ -13,11 +13,11 @@ namespace AudiometryClassificationML.ConsoleApp
     {
         /// <summary>
         /// After initializing the model, uses it
-        /// to predict values for hearing sets.
+        /// to predict values for hearing instances.
         /// </summary>
         public static void Main()
         {
-            InitializeModel();
+            ModelBuilder.CreateModel();
 
             List<HearingInstanceInput> predInstances = ReadPredictionCSV();
 
@@ -29,6 +29,7 @@ namespace AudiometryClassificationML.ConsoleApp
                 stopWatch.Start();
                 PredictLabels(instance);
                 stopWatch.Stop();
+
                 Console.WriteLine($"\n\nPrediction Time: {stopWatch.ElapsedMilliseconds} (ms)");
             }
 
@@ -36,26 +37,6 @@ namespace AudiometryClassificationML.ConsoleApp
             Console.ReadKey();
         }
 
-
-        /// <summary>
-        /// Runs the model creation process and
-        /// times how long the process takes.
-        /// </summary>
-        private static void InitializeModel()
-        {
-            var stopWatch = new Stopwatch();
-
-            stopWatch.Start();
-            ModelBuilder.CreateModel();
-            stopWatch.Stop();
-
-            TimeSpan ts = stopWatch.Elapsed;
-
-            Console.WriteLine($"\n\nElapsed Time: {ts.Minutes}:{ts.Seconds} (Min:Sec)");
-
-            Console.WriteLine("\n============================================\n\n");
-        }
-      
       
         /// <summary>
         /// Reads in the instances to predict.
@@ -71,11 +52,11 @@ namespace AudiometryClassificationML.ConsoleApp
         }
 
 
-        private static void PredictLabels(HearingInstanceInput hearingSet)
+        private static void PredictLabels(HearingInstanceInput instance)
         {
             Console.WriteLine("\nUsing model to make predictions for the following data:\n");
-            PrintDataSet(hearingSet);
-            PrintPredictionResults(ConsumeModel.Predict(hearingSet));
+            PrintDataSet(instance);
+            PrintPredictionResults(ConsumeModel.Predict(instance));
         }
 
 

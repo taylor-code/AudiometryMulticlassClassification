@@ -1,8 +1,11 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Diagnostics;
+
 using Microsoft.ML;
 using Microsoft.ML.Data;
+
 using AudiometryClassificationML.Model;
 
 
@@ -52,8 +55,22 @@ namespace AudiometryClassificationML.ConsoleApp
             TrainingPipeline = BuildTrainingPipeline();
             Console.WriteLine("Processed the data.");
 
-            Console.WriteLine("Training the model...");
+
+
+            // Time how long training takes.
+            Stopwatch stopWatch = new Stopwatch();
+
+            Console.WriteLine("\nTraining the model...");
+
+            stopWatch.Start();
             TrainedModel = TrainModel();
+            stopWatch.Stop();
+
+            TimeSpan ts = stopWatch.Elapsed;
+
+            Console.WriteLine($"Model Train Time: {ts.Minutes}:{ts.Seconds} (Min:Sec)\n");
+
+
 
             Console.WriteLine("Evaluating the model...");
             Evaluate();

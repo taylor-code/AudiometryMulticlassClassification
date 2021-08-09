@@ -1,4 +1,4 @@
 Type,Degree,Configuration,AC L 250 Hz,AC L 500 Hz,AC L 1000 Hz,AC L 2000 Hz,AC L 4000 Hz,AC L 8000 Hz,AC R 250 Hz,AC R 500 Hz,AC R 1000 Hz,AC R 2000 Hz,AC R 4000 Hz,AC R 8000 Hz,BC L 250 Hz,BC L 500 Hz,BC L 1000 Hz,BC L 2000 Hz,BC L 4000 Hz,BC L 8000 Hz,BC R 250 Hz,BC R 500 Hz,BC R 1000 Hz,BC R 2000 Hz,BC R 4000 Hz,BC R 8000 Hz
-Sensorineural,Mild,Right: Low-Frequency | Bilateral,40,40,40,40,30,35,35,35,40,35,35,35,30,35,30,-10,10,10,30,35,40,0,15,-10
-Mixed,Left: AC: Moderately-Severe | BC: Moderate & Right: AC: Profound | BC: Moderately-Severe,Low-Frequency | Bilateral,70,60,60,5,-5,5,55,45,55,10,15,-10,95,95,95,5,-5,0,70,70,65,5,-5,10
-Mixed,Left: AC: Mild | BC: Slight & Right: AC: Moderate | BC: Mild,Right: High-Frequency | Bilateral | Asymmetrical,35,40,35,30,40,35,20,20,25,20,20,20,-10,10,0,5,45,45,-5,-5,10,-5,40,30
+Mixed,Left: AC: Severe | BC: Slight & Right: AC: Profound | BC: Mild,Left: Low-Frequency | Bilateral | Asymmetrical,80,85,85,0,0,5,25,25,20,10,10,5,95,95,100,95,100,95,35,30,35,30,35,40
+Mixed,Left: AC: Severe | BC: Moderately-Severe & Right: AC: Profound | BC: Slight,Left: High-Frequency | Bilateral | Asymmetrical,-10,-5,10,-10,85,75,5,0,10,15,60,65,100,95,95,95,100,95,20,25,20,25,25,25
+Left: Mixed & Right: Sensorineural,Left: AC: Severe | BC: Slight & Right: Profound,Left: Low-Frequency | Bilateral | Asymmetrical,80,85,85,0,0,5,25,25,20,10,10,5,100,95,95,100,95,100,95,100,95,100,95,100
