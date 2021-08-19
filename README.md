@@ -19,15 +19,13 @@ These four metrics are represented on a scale of 0.00 to 1.00. For a high-perfor
 
 The average performance metrics for this program are:
 ```
-   Build Time         = 8:26 (Min:Sec)
-   Prediction Time    = 623 ms
-   Macro Accuracy     = 0.7429
-   Micro Accuracy     = 0.9824
-   Log-Loss           = 0.0784
-   Log-Loss Reduction = 0.9574
+   Build Time         = 5:38 (Min:Sec)
+   Prediction Time    = 506 ms
+   Macro Accuracy     = 1.0000
+   Micro Accuracy     = 1.0000
+   Log-Loss           = 0.0236
+   Log-Loss Reduction = 0.9870
 ```
-
-Class representation accounts for the disparity between the macro-average accuracy and the micro-average accuracy. A disproportionate class representation is expected in audiology. Given the class imbalance, micro accuracy is a better representation of this model's performance.
 
 ---
 
