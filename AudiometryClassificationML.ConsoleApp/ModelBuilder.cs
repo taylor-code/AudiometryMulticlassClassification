@@ -126,7 +126,7 @@ namespace AudiometryClassificationML.ConsoleApp
                                   ));
 
 
-            // SdcaMaximumEntropy() is the multi-class classification training algorithm.
+            // SdcaMaximumEntropy() is the multiclass classification training algorithm.
             // Create three trainers: one for each prediction (Config, Degree, and Type).
             var trainers = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(@"Config", "Features")
                               .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedConfig", "PredictedLabel"))
@@ -216,7 +216,7 @@ namespace AudiometryClassificationML.ConsoleApp
         private static void PrintMulticlassClassificationMetrics(MulticlassClassificationMetrics metrics)
         {
             /*
-             * Metrics for Multi-Class Classification:
+             * Metrics for Multiclass Classification:
              * 
              * Micro Accuracy      :  Better if close to 1
              * Macro Accuracy      :  Better if close to 1
@@ -226,7 +226,7 @@ namespace AudiometryClassificationML.ConsoleApp
 
             // Display the metrics for model validation.
             Console.WriteLine($"\n*****************************************************");
-            Console.WriteLine($"*    Metrics for Multi-Class Classification Model   ");
+            Console.WriteLine($"*    Metrics for Multiclass Classification Model   ");
             Console.WriteLine($"*----------------------------------------------------");
             Console.WriteLine($"*   Macro Accuracy     = {metrics.MacroAccuracy:0.####}");
             Console.WriteLine($"*   Micro Accuracy     = {metrics.MicroAccuracy:0.####}");
