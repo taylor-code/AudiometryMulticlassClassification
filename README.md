@@ -1,4 +1,4 @@
-# Audiometry Multi-Class Classification
+# Audiometry Multiclass Classification
 
 C# ML.NET program to predict the type, degree, and configuration of hearing loss.
 
@@ -6,7 +6,7 @@ C# ML.NET program to predict the type, degree, and configuration of hearing loss
 
 ## Performance
 
-The employed multi-class classification metrics are:
+The employed multiclass classification metrics are:
 
 1. Micro Accuracy
 2. Macro Accuracy
