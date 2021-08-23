@@ -235,7 +235,7 @@ namespace AudiometryClassificationML.ConsoleApp
             Console.WriteLine($"*****************************************************\n");
 
             // Print the Confusion Matrix for type prediction.
-            Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
+            // Console.WriteLine(metrics.ConfusionMatrix.GetFormattedConfusionTable());
         }
 
     }
